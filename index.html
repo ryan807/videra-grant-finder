@@ -204,7 +204,7 @@
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white; padding: 1.5rem; border-radius: var(--radius); margin-bottom: 1.5rem;
   }
-  .summary-header h2 { margin-bottom: 0.3rem; }
+  .summary-header h2 { margin-bottom: 0.3rem; color: #ffffff; }
   .summary-stats { display: flex; gap: 2rem; margin-top: 0.8rem; }
   .stat { text-align: center; }
   .stat .num { font-size: 1.8rem; font-weight: 800; }
@@ -613,134 +613,144 @@
 
   const grantsDatabase = [
     {
-      id: 'samhsa_ccbhc_expansion',
-      name: 'SAMHSA CCBHC Expansion Grant',
+      id: 'ccbhc_ia',
+      name: 'SAMHSA CCBHC Improvement & Advancement (CCBHC-IA)',
       funder: 'SAMHSA',
-      amount: 200000,
+      amount: 1000000,
       deadline: '2026-06-30',
-      relevantOrgTypes: ['ccbhc', 'fqhc'],
+      link: 'https://www.samhsa.gov/grants/grant-announcements/sm-23-016',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'other_provider'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient'],
+      relevantPopulations: ['adults', 'children', 'justice', 'veterans', 'general'],
+      relevantChallenges: ['access', 'screening', 'intake', 'documentation', 'monitoring', 'quality', 'outcomes'],
+      relevantProducts: ['front_door', 'intake', 'assess', 'sidekick', 'elevate', 'unify'],
+      description: 'For existing CCBHCs to expand and improve services including screening, assessment, care coordination, and technology adoption to meet CCBHC Certification Criteria.'
+    },
+    {
+      id: 'ccbhc_pdi',
+      name: 'SAMHSA CCBHC Planning, Development & Implementation (PDI)',
+      funder: 'SAMHSA',
+      amount: 1000000,
+      deadline: '2026-06-30',
+      link: 'https://www.samhsa.gov/grants/grant-announcements/sm-23-024',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'other_provider'],
       relevantCcbhcStatus: ['planning', 'interested'],
-      relevantPopulations: ['adults', 'children'],
+      relevantPopulations: ['adults', 'children', 'justice', 'veterans', 'general'],
+      relevantChallenges: ['access', 'screening', 'intake', 'documentation', 'monitoring', 'quality', 'outcomes'],
+      relevantProducts: ['front_door', 'intake', 'assess', 'sidekick', 'elevate', 'unify'],
+      description: 'For organizations establishing new CCBHCs. Technology infrastructure for screening and assessment is a key certification requirement.'
+    },
+    {
+      id: 'ccbhc_planning',
+      name: 'SAMHSA CCBHC Planning Grants',
+      funder: 'SAMHSA',
+      amount: 500000,
+      deadline: '2026-06-30',
+      link: 'https://www.samhsa.gov/grants/grant-announcements/sm-25-001',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'other_provider'],
+      relevantCcbhcStatus: ['interested', 'planning'],
+      relevantPopulations: ['adults', 'children', 'justice', 'veterans', 'general'],
       relevantChallenges: ['access', 'screening', 'intake', 'outcomes'],
-      relevantProducts: ['front_door', 'intake', 'assess'],
-      description: 'Funding to expand CCBHC certification and enhance integrated behavioral health services in underserved communities.'
+      relevantProducts: ['front_door', 'intake', 'assess', 'unify'],
+      description: 'Cooperative agreements supporting organizations in the early stages of developing CCBHC capabilities, including technology planning for required services.'
     },
     {
-      id: 'hrsa_sbh_integration',
-      name: 'HRSA Screening, Brief Intervention in BH',
+      id: 'hrsa_bhi',
+      name: 'HRSA Behavioral Health Integration Telehealth Network',
       funder: 'HRSA',
-      amount: 150000,
+      amount: 400000,
       deadline: '2026-08-15',
-      relevantOrgTypes: ['fqhc', 'hospital'],
-      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning'],
-      relevantPopulations: ['adults', 'general'],
-      relevantChallenges: ['screening', 'access', 'outcomes'],
-      relevantProducts: ['assess', 'intake', 'front_door'],
-      description: 'Support for implementing standardized screening and brief intervention protocols in primary care and behavioral health settings.'
-    },
-    {
-      id: 'cdc_mental_health_surveillance',
-      name: 'CDC Mental Health Surveillance Initiative',
-      funder: 'CDC',
-      amount: 100000,
-      deadline: '2026-09-30',
-      relevantOrgTypes: ['state_agency', 'fqhc', 'hospital'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['general'],
-      relevantChallenges: ['outcomes', 'monitoring', 'screening'],
-      relevantProducts: ['assess', 'elevate'],
-      description: 'Funding to establish robust mental health outcome tracking and population-level surveillance systems.'
-    },
-    {
-      id: 'substance_abuse_prevention_grants',
-      name: 'SAMHSA Substance Abuse Prevention',
-      funder: 'SAMHSA',
-      amount: 175000,
-      deadline: '2026-07-31',
-      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'other_provider'],
-      relevantCcbhcStatus: ['certified', 'grant_recipient'],
-      relevantPopulations: ['adults', 'children', 'justice'],
-      relevantChallenges: ['access', 'screening', 'outcomes', 'monitoring'],
-      relevantProducts: ['front_door', 'assess', 'intake'],
-      description: 'Grants for substance use disorder prevention, treatment, and recovery support services with emphasis on evidence-based practices.'
-    },
-    {
-      id: 'workforce_development_bhtraining',
-      name: 'Behavioral Health Workforce Development',
-      funder: 'HRSA',
-      amount: 125000,
-      deadline: '2026-10-15',
-      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'state_agency'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['adults', 'children', 'general'],
-      relevantChallenges: ['quality', 'documentation', 'outcomes'],
-      relevantProducts: ['sidekick', 'elevate', 'unify'],
-      description: 'Support for training and professional development of behavioral health workforce, including supervision and quality improvement initiatives.'
-    },
-    {
-      id: 'nij_reentry_justice',
-      name: 'NIJ Criminal Justice Reentry Program',
-      funder: 'NIJ',
-      amount: 200000,
-      deadline: '2026-05-31',
-      relevantOrgTypes: ['ccbhc', 'fqhc', 'state_agency'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['justice', 'adults'],
-      relevantChallenges: ['access', 'monitoring', 'outcomes'],
-      relevantProducts: ['assess', 'front_door', 'intake'],
-      description: 'Competitive grants for programs supporting behavioral health services for justice-involved and reentry populations.'
-    },
-    {
-      id: 'samhsa_ai_innovation',
-      name: 'SAMHSA AI & Digital Health Innovation',
-      funder: 'SAMHSA',
-      amount: 250000,
-      deadline: '2026-09-30',
-      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'health_plan', 'state_agency'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['adults', 'children', 'general'],
-      relevantChallenges: ['documentation', 'screening', 'access', 'outcomes', 'quality'],
-      relevantProducts: ['sidekick', 'assess', 'front_door', 'elevate', 'unify'],
-      description: 'Innovation grants to test and evaluate AI and digital health technologies that improve behavioral health outcomes and care access.'
-    },
-    {
-      id: 'usda_rural_health_grants',
-      name: 'USDA Rural Health Care Program',
-      funder: 'USDA',
-      amount: 80000,
-      deadline: '2026-08-31',
+      link: 'https://www.hrsa.gov/grants/find-funding/HRSA-24-010',
       relevantOrgTypes: ['fqhc', 'hospital', 'other_provider'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['adults', 'general'],
-      relevantChallenges: ['access', 'documentation', 'monitoring'],
-      relevantProducts: ['assess', 'front_door', 'sidekick'],
-      description: 'Grants for rural healthcare programs to improve mental health and substance use disorder services access.'
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['access', 'screening', 'monitoring', 'intake'],
+      relevantProducts: ['assess', 'front_door', 'intake', 'unify'],
+      description: 'Integrates behavioral health services into primary care using telehealth. Supports AI-assisted screening and remote monitoring in rural and underserved communities.'
     },
     {
-      id: 'va_veteran_mental_health',
-      name: 'VA Community Care Partnerships',
-      funder: 'VA',
-      amount: 150000,
-      deadline: '2026-07-15',
-      relevantOrgTypes: ['fqhc', 'hospital', 'ccbhc'],
-      relevantCcbhcStatus: [],
-      relevantPopulations: ['veterans', 'adults'],
-      relevantChallenges: ['access', 'monitoring', 'outcomes', 'screening'],
+      id: 'hrsa_pediatric',
+      name: 'HRSA Pediatric Mental Health Care Access Program',
+      funder: 'HRSA',
+      amount: 445000,
+      deadline: '2026-08-15',
+      link: 'https://www.hrsa.gov/grants',
+      relevantOrgTypes: ['fqhc', 'hospital', 'state_agency', 'other_provider'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['children'],
+      relevantChallenges: ['access', 'screening', 'intake', 'monitoring'],
       relevantProducts: ['assess', 'front_door', 'intake'],
-      description: 'Partnership grants for community providers offering behavioral health services to veterans and military-connected populations.'
+      description: 'Improves behavioral health access for children and youth through tele-consultation, training, and care coordination support.'
     },
     {
-      id: 'nida_addiction_research',
-      name: 'NIDA Treatment Innovation Research',
-      funder: 'NIDA',
-      amount: 180000,
-      deadline: '2026-10-01',
-      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital'],
+      id: 'nih_ahrq',
+      name: 'NIH/AHRQ Digital Healthcare Solutions Grants (R21/R33)',
+      funder: 'NIH / AHRQ',
+      amount: 500000,
+      deadline: 'Rolling — Multiple cycles per year',
+      link: 'https://www.socialroots.ai/grant-success-stories/nih-ahrq-digital-healthcare-solutions-grants-2026',
+      relevantOrgTypes: ['hospital', 'fqhc', 'state_agency'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['outcomes', 'quality', 'monitoring', 'screening', 'documentation'],
+      relevantProducts: ['assess', 'sidekick', 'elevate', 'unify'],
+      description: 'Supports development and implementation of digital health tools including AI-based clinical decision support, smart workflows, and remote monitoring platforms.'
+    },
+    {
+      id: 'usda_dlt',
+      name: 'USDA Distance Learning & Telemedicine (DLT) Grants',
+      funder: 'USDA',
+      amount: 500000,
+      deadline: '2026-Q1 — Annual cycle',
+      link: 'https://www.rd.usda.gov/programs-services/telecommunications-programs/distance-learning-telemedicine-grants',
+      relevantOrgTypes: ['fqhc', 'hospital', 'other_provider', 'ccbhc'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['access', 'monitoring', 'screening', 'documentation'],
+      relevantProducts: ['assess', 'front_door', 'intake', 'unify'],
+      description: 'Funds telehealth technology and equipment for rural communities. Can cover AI screening platforms, remote monitoring tools, and telehealth infrastructure.'
+    },
+    {
+      id: 'fcc_connected',
+      name: 'FCC Connected Care Pilot / Rural Telehealth Initiative',
+      funder: 'FCC',
+      amount: 400000,
+      deadline: 'Periodic — Check FCC announcements',
+      link: 'https://www.fcc.gov/connected-care-pilot-program',
+      relevantOrgTypes: ['fqhc', 'ccbhc', 'hospital', 'other_provider'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['access', 'monitoring', 'screening'],
+      relevantProducts: ['assess', 'front_door', 'intake'],
+      description: 'Leverages FCC funding for technology, connectivity, and training supporting behavioral health and substance use treatment via telehealth.'
+    },
+    {
+      id: 'samhsa_block',
+      name: 'SAMHSA Block Grants (via State Mental Health Authority)',
+      funder: 'SAMHSA (via State)',
+      amount: 500000,
+      deadline: 'State-dependent — Contact your SMHA',
+      link: 'https://www.samhsa.gov/grants/block-grants',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'other_provider', 'state_agency'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
+      relevantPopulations: ['adults', 'children', 'justice', 'veterans', 'general'],
+      relevantChallenges: ['access', 'screening', 'intake', 'documentation', 'monitoring', 'quality', 'outcomes'],
+      relevantProducts: ['assess', 'front_door', 'intake', 'sidekick', 'elevate', 'unify'],
+      description: 'Federal block grant funds flow through state mental health authorities and can support technology adoption for behavioral health screening, assessment, and crisis services.'
+    },
+    {
+      id: 'state_ccbhc_demo',
+      name: 'State CCBHC Medicaid Demonstration Program',
+      funder: 'CMS / State Medicaid',
+      amount: 1000000,
+      deadline: 'State-dependent enrollment windows',
+      link: 'https://www.samhsa.gov/communities/certified-community-behavioral-health-clinics/section-223',
+      relevantOrgTypes: ['ccbhc'],
       relevantCcbhcStatus: ['certified', 'grant_recipient'],
-      relevantPopulations: ['adults', 'justice'],
-      relevantChallenges: ['outcomes', 'quality', 'monitoring', 'screening'],
-      relevantProducts: ['assess', 'elevate', 'unify'],
-      description: 'Research grants testing innovative approaches to substance use disorder treatment outcomes and quality improvement.'
+      relevantPopulations: ['adults', 'children', 'justice', 'veterans', 'general'],
+      relevantChallenges: ['access', 'screening', 'intake', 'documentation', 'monitoring', 'quality', 'denials', 'outcomes'],
+      relevantProducts: ['front_door', 'intake', 'assess', 'sidekick', 'elevate', 'unify'],
+      description: 'States participating in the Section 223 demonstration offer enhanced Medicaid reimbursement for CCBHCs. Technology costs for required services can be built into PPS rates.'
     }
   ];
 
@@ -841,10 +851,17 @@
 
     // Update summary stats
     const uniqueProducts = new Set(answers.products);
-    const totalFunding = scoredGrants.reduce((sum, sg) => sum + sg.grant.amount, 0) / 1000000;
+    const totalFundingRaw = scoredGrants.reduce((sum, sg) => sum + sg.grant.amount, 0);
+    let fundingDisplay;
+    if (totalFundingRaw >= 1000000) {
+      const millions = totalFundingRaw / 1000000;
+      fundingDisplay = (millions % 1 === 0) ? '$' + millions + 'M' : '$' + millions.toFixed(1) + 'M';
+    } else {
+      fundingDisplay = '$' + Math.round(totalFundingRaw / 1000) + 'K';
+    }
     document.getElementById('statMatches').textContent = scoredGrants.length;
     document.getElementById('statProducts').textContent = uniqueProducts.size;
-    document.getElementById('statFunding').textContent = '$' + totalFunding.toFixed(1) + 'M';
+    document.getElementById('statFunding').textContent = fundingDisplay;
 
     // Render grant cards
     const container = document.getElementById('resultsContainer');
@@ -868,17 +885,24 @@
       const card = document.createElement('div');
       card.className = 'grant-card' + (matchPercent < 50 ? ' low-match' : '');
 
+      // Format deadline — handle both date strings and descriptive text
+      let deadlineDisplay = grant.deadline;
+      if (/^\d{4}-\d{2}-\d{2}$/.test(grant.deadline)) {
+        deadlineDisplay = new Date(grant.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
       let html = `
         <div class="grant-header">
           <div class="grant-name">${grant.name}</div>
           <span class="match-badge ${badgeClass}">${matchPercent}% Match</span>
         </div>
         <div class="grant-meta">
-          <span>💰 $${grant.amount.toLocaleString()}</span>
-          <span>📅 Deadline: ${new Date(grant.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-          <span>🏢 ${grant.funder}</span>
+          <span>🏛️ ${grant.funder}</span>
+          <span>💰 $${grant.amount >= 1000000 ? (grant.amount/1000000) + 'M/year' : (grant.amount/1000) + 'K'}</span>
+          <span>📅 ${deadlineDisplay}</span>
         </div>
         <p class="grant-desc">${grant.description}</p>
+        ${grant.link ? `<a href="${grant.link}" target="_blank" class="expand-toggle" style="text-decoration:none;margin-bottom:0.3rem;">🔗 Official Grant Page ↗</a>` : ''}
       `;
 
       if (relevantProds.length > 0) {
