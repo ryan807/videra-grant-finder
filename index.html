@@ -160,6 +160,36 @@
   }
   .copy-btn:hover { background: var(--primary-light); }
 
+  /* Application builder form */
+  .app-builder { margin: 1.2rem 0; padding: 1rem; background: #f0f7ff; border-radius: 8px; border-left: 3px solid var(--primary); }
+  .app-builder h5 { font-size: 0.9rem; color: var(--primary); margin-bottom: 0.8rem; font-weight: 700; }
+  .form-group { margin-bottom: 0.8rem; }
+  .form-group label { display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.3rem; color: var(--text); }
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 6px;
+    font-size: 0.85rem; font-family: inherit; outline: none;
+  }
+  .form-group input[type="text"]:focus,
+  .form-group textarea:focus { border-color: var(--primary-light); background: #fafbfc; }
+  .form-group textarea { resize: vertical; min-height: 60px; }
+
+  .generate-btn {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.5rem 1rem; background: var(--primary); color: white;
+    border: none; border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; margin-top: 0.5rem;
+  }
+  .generate-btn:hover { background: var(--primary-light); }
+
+  .generated-text {
+    margin-top: 1rem; padding: 1rem; background: white; border-radius: 6px;
+    border: 1px solid var(--primary); font-size: 0.88rem; line-height: 1.7;
+  }
+
+  .generated-text p { margin-bottom: 0.8rem; }
+  .generated-text p:last-child { margin-bottom: 0; }
+
   /* Application checklist */
   .checklist { list-style: none; padding: 0; }
   .checklist li {
@@ -374,7 +404,7 @@
   <!-- STEP 5: Challenges -->
   <div class="step" id="step5">
     <h2>What are your biggest operational challenges?</h2>
-    <p class="subtitle">Select all that apply — this helps match you with the right Videra solutions and grants.</p>
+    <p class="subtitle">Select all that apply — we'll auto-match you with the right Videra solutions and grants.</p>
     <div class="options" id="challenges">
       <button class="opt-btn" data-value="access">
         <div class="check"></div>
@@ -423,50 +453,8 @@
     </div>
   </div>
 
-  <!-- STEP 6: Products of Interest -->
+  <!-- STEP 6: Org Details (was step 7) -->
   <div class="step" id="step6">
-    <h2>Which Videra products are you interested in?</h2>
-    <p class="subtitle">Select all that apply — we'll tailor the grant language to these solutions.</p>
-    <div class="options" id="products">
-      <button class="opt-btn" data-value="front_door">
-        <div class="check"></div>
-        <div><div class="label">Front Door</div>
-        <div class="desc">AI-powered phone agent that answers every call 24/7, captures real intake data, qualifies leads, and flows structured records into your EHR. No caller ever gets a busy signal.</div></div>
-      </button>
-      <button class="opt-btn" data-value="intake">
-        <div class="check"></div>
-        <div><div class="label">Intake Accelerator</div>
-        <div class="desc">Patients converse with AI to complete history, assessments, and medical history. The AI does the interviewing and fills out the forms — eliminating intake bottlenecks.</div></div>
-      </button>
-      <button class="opt-btn" data-value="sidekick">
-        <div class="check"></div>
-        <div><div class="label">Sidekick Notes</div>
-        <div class="desc">AI listens to in-person or telehealth therapy sessions (individual and group) and completes clinical notes in seconds. Only solution with auto speaker ID for group therapy.</div></div>
-      </button>
-      <button class="opt-btn" data-value="assess">
-        <div class="check"></div>
-        <div><div class="label">Assess</div>
-        <div class="desc">Multimodal between-visit check-ins measuring patient health status via video, voice, and text analysis. Catches what humans miss.</div></div>
-      </button>
-      <button class="opt-btn" data-value="elevate">
-        <div class="check"></div>
-        <div><div class="label">Sidekick Elevate</div>
-        <div class="desc">AI analyzes sessions for empathy, therapeutic alliance, evidence-based practices, and red flags — then provides clinician feedback and coaching.</div></div>
-      </button>
-      <button class="opt-btn" data-value="unify">
-        <div class="check"></div>
-        <div><div class="label">Unify</div>
-        <div class="desc">AI documentation review that helps complete documents faster while finding potential issues before claims are submitted. Reduces claim denials.</div></div>
-      </button>
-    </div>
-    <div class="nav">
-      <button class="btn btn-back" onclick="goStep(5)">← Back</button>
-      <button class="btn btn-next" id="next6" disabled>Next →</button>
-    </div>
-  </div>
-
-  <!-- STEP 7: Org Details -->
-  <div class="step" id="step7">
     <h2>A few more details</h2>
     <p class="subtitle">This helps personalize your grant language.</p>
     <div style="display:flex;flex-direction:column;gap:1rem;">
@@ -499,562 +487,539 @@
           <option value="">Select range...</option>
           <option value="small">1–25 clinicians</option>
           <option value="medium">26–100 clinicians</option>
-          <option value="large">101–500 clinicians</option>
-          <option value="enterprise">500+ clinicians</option>
+          <option value="large">100+ clinicians</option>
         </select>
-      </div>
-      <div>
-        <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:0.3rem;">Contact Name (optional)</label>
-        <input type="text" class="text-input" id="contactName" placeholder="Your name">
-      </div>
-      <div>
-        <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:0.3rem;">Contact Email (optional)</label>
-        <input type="email" class="text-input" id="contactEmail" placeholder="email@organization.com">
       </div>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(6)">← Back</button>
-      <button class="btn btn-next" id="next7" onclick="generateResults()">Find My Grants →</button>
+      <button class="btn btn-back" onclick="goStep(5)">← Back</button>
+      <button class="btn btn-next" id="next6" disabled>Next →</button>
     </div>
   </div>
 
-  <!-- RESULTS -->
-  <div class="step" id="stepResults">
-    <div id="resultsContent"></div>
+  <!-- RESULTS PAGE -->
+  <div class="step results-step" id="results">
+    <button class="print-btn" onclick="window.print()">🖨️ Print Results</button>
+
+    <div class="summary-header">
+      <h2>Your Grant Matches</h2>
+      <div class="summary-stats">
+        <div class="stat">
+          <div class="num" id="statMatches">0</div>
+          <div class="lbl">Matching Grants</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="statProducts">0</div>
+          <div class="lbl">Products Recommended</div>
+        </div>
+        <div class="stat">
+          <div class="num" id="statFunding">$0M</div>
+          <div class="lbl">Total Funding Available</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-bar" id="tabBar"></div>
+
+    <div class="results-section" id="resultsContainer"></div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn btn-back" onclick="goStep(6)">← Back to Edit Answers</button>
+    </div>
   </div>
+
 </div>
 
 <script>
-// ─── STATE ───
-const answers = {
-  orgType: null,
-  ccbhcStatus: null,
-  setting: null,
-  population: [],
-  challenges: [],
-  products: [],
-  orgName: '',
-  state: '',
-  orgSize: '',
-  contactName: '',
-  contactEmail: ''
-};
+  const totalSteps = 6;
 
-const totalSteps = 7;
-let currentStep = 1;
+  const challengeToProducts = {
+    access: ['front_door', 'assess'],
+    documentation: ['sidekick', 'elevate'],
+    screening: ['assess', 'intake'],
+    intake: ['intake', 'front_door'],
+    monitoring: ['assess'],
+    quality: ['elevate', 'sidekick'],
+    denials: ['unify'],
+    outcomes: ['assess', 'elevate', 'unify']
+  };
 
-// ─── GRANTS DATABASE ───
-const grants = [
-  {
-    id: 'ccbhc_ia',
-    name: 'SAMHSA CCBHC Improvement & Advancement (CCBHC-IA)',
-    agency: 'SAMHSA',
-    amount: 'Up to $1M/year for 4 years',
-    deadline: 'FY2026 — Expected posting March 2026',
-    link: 'https://www.samhsa.gov/grants/grant-announcements/sm-23-016',
-    description: 'For existing CCBHCs to expand and improve services including screening, assessment, care coordination, and technology adoption to meet CCBHC Certification Criteria.',
-    eligibility: (a) => ['ccbhc','fqhc','other_provider'].includes(a.orgType) && ['certified','grant_recipient'].includes(a.ccbhcStatus),
-    partialMatch: (a) => ['ccbhc','fqhc','other_provider'].includes(a.orgType) && ['planning','interested'].includes(a.ccbhcStatus),
-    relevantProducts: ['front_door','intake','assess','sidekick','elevate','unify'],
-    checklist: [
-      'Demonstrate current CCBHC certification or existing CCBHC grant',
-      'Conduct community needs assessment documenting behavioral health gaps',
-      'Describe technology plan for screening, assessment, and outcome tracking',
-      'Detail how AI tools will improve CCBHC Certification Criteria compliance',
-      'Provide staffing plan showing how documentation efficiency gains will be used',
-      'Include data collection plan for required SAMHSA performance measures',
-      'Budget justification for technology costs within $1M annual cap'
-    ]
-  },
-  {
-    id: 'ccbhc_pdi',
-    name: 'SAMHSA CCBHC Planning, Development & Implementation (PDI)',
-    agency: 'SAMHSA',
-    amount: 'Up to $1M/year for 4 years',
-    deadline: 'FY2026 — Check SAMHSA Grants Dashboard',
-    link: 'https://www.samhsa.gov/grants/grant-announcements/sm-23-024',
-    description: 'For organizations establishing new CCBHCs. Technology infrastructure for screening and assessment is a key certification requirement.',
-    eligibility: (a) => ['ccbhc','fqhc','other_provider'].includes(a.orgType) && ['planning','interested'].includes(a.ccbhcStatus),
-    partialMatch: (a) => ['ccbhc','fqhc','other_provider'].includes(a.orgType),
-    relevantProducts: ['front_door','intake','assess','sidekick','elevate','unify'],
-    checklist: [
-      'Articulate plan to achieve CCBHC certification within 1 year of award',
-      'Describe technology infrastructure needed for required screening and assessments',
-      'Show how AI-powered tools address CCBHC criteria (access, screening, care coordination)',
-      'Document community needs and target population',
-      'Provide partnership letters from collaborating organizations',
-      'Detail implementation timeline for technology deployment',
-      'Include sustainability plan beyond the grant period'
-    ]
-  },
-  {
-    id: 'ccbhc_planning',
-    name: 'SAMHSA CCBHC Planning Grants',
-    agency: 'SAMHSA',
-    amount: 'Up to $500K/year',
-    deadline: 'FY2026 — Check SAMHSA Grants Dashboard',
-    link: 'https://www.samhsa.gov/grants/grant-announcements/sm-25-001',
-    description: 'Cooperative agreements supporting organizations in the early stages of developing CCBHC capabilities, including technology planning for required services.',
-    eligibility: (a) => ['ccbhc','fqhc','other_provider'].includes(a.orgType) && ['interested','planning'].includes(a.ccbhcStatus),
-    partialMatch: (a) => a.ccbhcStatus === 'not_applicable' && ['ccbhc','fqhc'].includes(a.orgType),
-    relevantProducts: ['front_door','intake','assess','unify'],
-    checklist: [
-      'Demonstrate readiness to develop CCBHC capabilities',
-      'Include technology needs assessment and planning component',
-      'Describe how proposed tools will support required CCBHC services',
-      'Identify gaps in current screening and assessment capabilities',
-      'Plan for data collection and outcome measurement infrastructure'
-    ]
-  },
-  {
-    id: 'hrsa_bhi',
-    name: 'HRSA Behavioral Health Integration Telehealth Network Program',
-    agency: 'HRSA',
-    amount: 'Varies by cycle — typically $300K–$500K/year',
-    deadline: 'Periodic — Check HRSA Grants page',
-    link: 'https://www.hrsa.gov/grants/find-funding/HRSA-24-010',
-    description: 'Integrates behavioral health services into primary care using telehealth. Supports AI-assisted screening and remote monitoring in rural and underserved communities.',
-    eligibility: (a) => ['fqhc','hospital','other_provider'].includes(a.orgType) && ['rural','urban_underserved','mixed'].includes(a.setting),
-    partialMatch: (a) => ['fqhc','hospital','other_provider'].includes(a.orgType),
-    relevantProducts: ['assess','front_door','intake','unify'],
-    checklist: [
-      'Demonstrate rural or underserved community need for behavioral health integration',
-      'Describe telehealth network infrastructure and technology plan',
-      'Show how AI screening tools will expand access in primary care settings',
-      'Include remote monitoring plan for patients between visits',
-      'Detail partnership with at least one primary care site',
-      'Provide evidence of existing telehealth capability or clear implementation plan'
-    ]
-  },
-  {
-    id: 'hrsa_pediatric',
-    name: 'HRSA Pediatric Mental Health Care Access Program',
-    agency: 'HRSA',
-    amount: 'Up to $445K per award',
-    deadline: 'Expected posting March 2026',
-    link: 'https://www.hrsa.gov/grants',
-    description: 'Improves behavioral health access for children and youth through tele-consultation, training, and care coordination support.',
-    eligibility: (a) => a.population.includes('children') && ['fqhc','hospital','state_agency','other_provider'].includes(a.orgType),
-    partialMatch: (a) => a.population.includes('children'),
-    relevantProducts: ['assess','front_door','intake'],
-    checklist: [
-      'Demonstrate focus on pediatric or adolescent behavioral health population',
-      'Describe tele-consultation model for behavioral health screening',
-      'Show how AI assessment tools can support pediatric screening (e.g. age-appropriate measures)',
-      'Include care coordination and referral workflow',
-      'Detail training plan for providers on technology use'
-    ]
-  },
-  {
-    id: 'nih_ahrq',
-    name: 'NIH/AHRQ Digital Healthcare Solutions Grants (R21/R33)',
-    agency: 'NIH / AHRQ',
-    amount: 'Varies — typically $200K–$1M',
-    deadline: 'Rolling / Multiple cycles per year',
-    link: 'https://www.socialroots.ai/grant-success-stories/nih-ahrq-digital-healthcare-solutions-grants-2026',
-    description: 'Supports development and implementation of digital health tools including AI-based clinical decision support, smart workflows, and remote monitoring platforms.',
-    eligibility: (a) => ['hospital','fqhc','state_agency'].includes(a.orgType),
-    partialMatch: (a) => true,
-    relevantProducts: ['assess','sidekick','elevate','unify'],
-    checklist: [
-      'Develop research protocol around AI tool implementation and outcomes',
-      'Include IRB approval plan or exemption documentation',
-      'Describe specific digital health innovation and its clinical impact hypothesis',
-      'Detail data collection methodology for measuring outcomes',
-      'Include partnership with academic institution if possible',
-      'Budget for evaluation and reporting components'
-    ]
-  },
-  {
-    id: 'usda_dlt',
-    name: 'USDA Distance Learning & Telemedicine (DLT) Grants',
-    agency: 'USDA',
-    amount: 'Up to $1M (typically $50K–$500K)',
-    deadline: 'Annual — typically opens Q1',
-    link: 'https://www.rd.usda.gov/programs-services/telecommunications-programs/distance-learning-telemedicine-grants',
-    description: 'Funds telehealth technology and equipment for rural communities. Can cover AI screening platforms, remote monitoring tools, and telehealth infrastructure.',
-    eligibility: (a) => ['rural','mixed'].includes(a.setting),
-    partialMatch: (a) => a.setting === 'urban_underserved',
-    relevantProducts: ['assess','front_door','intake','unify'],
-    checklist: [
-      'Confirm service area meets USDA rural eligibility criteria',
-      'Describe specific technology equipment and platform to be funded',
-      'Show how technology addresses healthcare access barriers in rural area',
-      'Include at least two end-user sites in the application',
-      'Provide 15% minimum matching funds',
-      'Detail sustainability plan for ongoing technology costs after grant period'
-    ]
-  },
-  {
-    id: 'fcc_connected',
-    name: 'FCC Connected Care Pilot / Rural Telehealth Initiative',
-    agency: 'FCC',
-    amount: 'Varies — covers connectivity and technology costs',
-    deadline: 'Periodic — Check FCC announcements',
-    link: 'https://www.fcc.gov/connected-care-pilot-program',
-    description: 'Leverages FCC funding for technology, connectivity, and training supporting behavioral health and substance use treatment via telehealth.',
-    eligibility: (a) => ['rural','mixed'].includes(a.setting) && ['fqhc','ccbhc','hospital','other_provider'].includes(a.orgType),
-    partialMatch: (a) => a.setting === 'urban_underserved',
-    relevantProducts: ['assess','front_door','intake'],
-    checklist: [
-      'Document broadband/connectivity challenges in service area',
-      'Describe how funded technology will enable remote behavioral health services',
-      'Include patient engagement plan for remote monitoring adoption',
-      'Detail specific technology platforms and connectivity needs',
-      'Provide projected patient impact numbers'
-    ]
-  },
-  {
-    id: 'samhsa_block',
-    name: 'SAMHSA Block Grants (via State Mental Health Authority)',
-    agency: 'SAMHSA (via State)',
-    amount: 'Varies by state allocation',
-    deadline: 'State-dependent — Contact your SMHA',
-    link: 'https://www.samhsa.gov/grants/block-grants',
-    description: 'Federal block grant funds flow through state mental health authorities and can support technology adoption for behavioral health screening, assessment, and crisis services.',
-    eligibility: (a) => ['ccbhc','fqhc','other_provider','state_agency'].includes(a.orgType),
-    partialMatch: (a) => true,
-    relevantProducts: ['assess','front_door','intake','sidekick','elevate','unify'],
-    checklist: [
-      'Contact your State Mental Health Authority (SMHA) about technology funding priorities',
-      'Align proposal with state behavioral health plan priorities',
-      'Demonstrate how technology improves screening and early identification',
-      'Show cost-effectiveness and sustainability of proposed AI tools',
-      'Include outcome metrics aligned with state reporting requirements'
-    ]
-  },
-  {
-    id: 'state_ccbhc_demo',
-    name: 'State CCBHC Medicaid Demonstration Program',
-    agency: 'CMS / State Medicaid',
-    amount: 'Prospective Payment System (PPS) rate — ongoing',
-    deadline: 'State-dependent enrollment windows',
-    link: 'https://www.samhsa.gov/communities/certified-community-behavioral-health-clinics/section-223',
-    description: 'States participating in the Section 223 demonstration offer enhanced Medicaid reimbursement for CCBHCs. Technology costs for required services can be built into PPS rates.',
-    eligibility: (a) => ['ccbhc'].includes(a.orgType) && ['certified','grant_recipient'].includes(a.ccbhcStatus),
-    partialMatch: (a) => ['ccbhc','fqhc'].includes(a.orgType) && ['planning','interested'].includes(a.ccbhcStatus),
-    relevantProducts: ['front_door','intake','assess','sidekick','elevate','unify'],
-    checklist: [
-      'Verify your state participates in Section 223 CCBHC demonstration',
-      'Work with state Medicaid agency on PPS rate that includes technology costs',
-      'Document technology expenditures as allowable costs under PPS',
-      'Show how AI tools support required CCBHC service categories',
-      'Include technology in cost report documentation'
-    ]
-  }
-];
-
-// ─── PRODUCT TEMPLATES (grant language) ───
-const productTemplates = {
-  front_door: {
-    name: 'Front Door',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will implement Videra Health's Front Door, an AI-powered phone agent that answers every call to the facility 24/7. Callers experience a natural, human-like conversation — Front Door recognizes whether it's a referring provider, a parent, or a prospective patient and adapts accordingly. It collects key intake data and answers common caller questions, then flows everything directly into the EHR as structured records ready for follow-up and scheduling.
-
-This technology directly addresses critical access barriers by:
-• Ensuring no caller ever gets a busy signal, even during peak volume — eliminating missed admissions
-• Capturing real intake data (demographics, referral details, presenting problems, verification of benefits) rather than just names and numbers
-• Monitoring every call for suicidal language with built-in crisis safety routing to crisis hotlines when needed
-• Integrating seamlessly with virtually any EHR with minimal IT involvement
-• Replacing costly answering services with round-the-clock AI that delivers real intake work, already in the EHR each morning
-
-Front Door goes live in 4–6 weeks with full setup, configuration, testing, and ongoing monitoring handled by Videra. This capability directly supports the grant's goals of expanding access, improving early identification, and ensuring every inquiry becomes a qualified lead into behavioral health services.`
-  },
-  intake: {
-    name: 'Intake Accelerator',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will deploy Videra Health's Intake Accelerator, an AI-driven solution that eliminates the intake bottleneck by having patients converse directly with the AI to complete their history, assessments, and medical background. The AI conducts the interview and fills out the forms, allowing patients to complete comprehensive clinical intake on their own time.
-
-This technology addresses the critical intake challenge by:
-• Automating the collection of complete patient history, clinical assessments, and medical information through natural AI-guided conversation
-• Reducing administrative intake processing time by up to 50%, enabling staff to focus on clinical care rather than paperwork
-• Generating structured intake documentation that flows directly into the EHR, eliminating duplicate data entry
-• Supporting patient-directed completion via video, voice, text, and chat — meeting patients where they are
-
-By removing the intake bottleneck, this investment ensures patients enter services faster and that clinicians receive complete, structured clinical information before the first appointment. This supports the grant's goals of improving access to care and reducing time-to-treatment.`
-  },
-  sidekick: {
-    name: 'Sidekick Notes',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will implement Sidekick Notes, Videra Health's AI-powered clinical documentation system purpose-built for behavioral health. Sidekick Notes listens to in-person or telehealth therapy sessions — both individual and group — and completes clinical notes in seconds.
-
-This technology addresses the critical workforce challenge facing behavioral health providers:
-• Clinicians currently spend 30–50% of their time on documentation rather than direct patient care. Sidekick Notes returns that time to clinical service delivery, effectively increasing clinical capacity without hiring additional staff
-• The only documentation solution with automatic speaker identification for group therapy via Speaker Map technology, generating individual notes for each group participant
-• Purpose-built for behavioral health with BH-specific note formats for therapists, prescribers, techs, and staff — not a generic scribe repurposed for mental health
-• EHR-agnostic design works with any electronic health record system
-
-By addressing documentation burden as a key driver of clinician burnout and turnover, this investment directly supports workforce retention and sustainability goals. The resulting increase in available clinical hours translates to measurable improvements in patient access and throughput.`
-  },
-  assess: {
-    name: 'Assess',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will deploy Videra Health's Assess platform, an FDA-registered, AI-native solution that provides multimodal between-visit check-ins measuring patient health status via video, voice, and text analysis. The platform's multimodal analysis catches clinical signals that humans miss.
-
-Assess addresses critical screening and monitoring needs by:
-• Delivering automated between-visit check-ins that measure patient health status through AI analysis of linguistic patterns, vocal biomarkers, and facial expression analysis
-• Detecting early signs of clinical deterioration, risk signals, and changes in therapeutic alliance through multimodal AI trained on hundreds of thousands of real patient interactions
-• Providing compliant data at scale across video, voice, text, and SMS modalities — FDA registered, HIPAA compliant, and SOC 2 Type II certified
-• Achieving high patient completion rates through the patient's preferred communication channel
-
-This technology transforms episodic behavioral health care into continuous monitoring, enabling proactive identification of at-risk individuals and data-driven clinical decisions. The platform's outcome tracking capabilities support the program's required performance measurement and reporting obligations.`
-  },
-  elevate: {
-    name: 'Sidekick Elevate',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will implement Sidekick Elevate, Videra Health's AI-powered clinical quality improvement tool. Elevate analyzes therapy sessions for empathy, therapeutic alliance, evidence-based practice adherence, and clinical red flags — then provides structured feedback and coaching to clinicians.
-
-This technology supports clinical quality and workforce development by:
-• Providing objective, AI-driven assessment of session quality across evidence-based dimensions
-• Identifying clinical red flags and areas where additional training or supervision may be needed
-• Supporting clinician professional development through automated feedback loops
-• Improving treatment fidelity and adherence to evidence-based practices across the organization
-
-By building a continuous quality improvement loop into clinical operations, this investment supports the grant's goals of improving clinical outcomes, maintaining evidence-based practice standards, and strengthening the behavioral health workforce.`
-  },
-  unify: {
-    name: 'Unify',
-    grantLanguage: (orgName) => `${orgName || 'The organization'} will implement Videra Health's Unify, an AI documentation review solution that helps complete documents faster while finding potential issues before claims are submitted, directly reducing claim denials and improving revenue cycle performance.
-
-Unify addresses administrative and compliance challenges by:
-• Accelerating documentation completion through AI-assisted review and gap identification
-• Catching potential claim denial triggers before submission, reducing revenue loss
-• Integrating with the full Videra platform so that every product shares patient context — a patient captured through Front Door is assessed during Intake, tracked through Sidekick, and monitored through Assess, creating one continuous intelligent picture
-• Supporting compliance with payer requirements and regulatory documentation standards
-
-When combined with other Videra solutions, Unify creates a unified AI foundation where every solution knows what the others know — no data silos, no repeated questions, and one EHR connection unlocks everything. The platform currently serves 300+ behavioral health facilities with over 1M patient data points and 100K+ notes generated, demonstrating proven scalability.`
-  }
-};
-
-// ─── UI LOGIC ───
-function setupSingleSelect(containerId, answerKey, nextBtnId) {
-  const container = document.getElementById(containerId);
-  const nextBtn = document.getElementById(nextBtnId);
-  container.querySelectorAll('.opt-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      container.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      answers[answerKey] = btn.dataset.value;
-      nextBtn.disabled = false;
-    });
-  });
-}
-
-function setupMultiSelect(containerId, answerKey, nextBtnId) {
-  const container = document.getElementById(containerId);
-  const nextBtn = document.getElementById(nextBtnId);
-  container.querySelectorAll('.opt-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('selected');
-      answers[answerKey] = Array.from(container.querySelectorAll('.opt-btn.selected')).map(b => b.dataset.value);
-      nextBtn.disabled = answers[answerKey].length === 0;
-    });
-  });
-}
-
-function goStep(n) {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  const target = n === 8 ? 'stepResults' : `step${n}`;
-  document.getElementById(target).classList.add('active');
-  currentStep = n;
-  updateProgress();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function updateProgress() {
-  const pct = Math.round(((currentStep - 1) / totalSteps) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = currentStep <= totalSteps ? `Step ${currentStep} of ${totalSteps}` : 'Complete';
-}
-
-// Wire up navigation
-document.getElementById('next1').addEventListener('click', () => goStep(2));
-document.getElementById('next2').addEventListener('click', () => goStep(3));
-document.getElementById('next3').addEventListener('click', () => goStep(4));
-document.getElementById('next4').addEventListener('click', () => goStep(5));
-document.getElementById('next5').addEventListener('click', () => goStep(6));
-document.getElementById('next6').addEventListener('click', () => goStep(7));
-
-// Wire up selections
-setupSingleSelect('orgType', 'orgType', 'next1');
-setupSingleSelect('ccbhcStatus', 'ccbhcStatus', 'next2');
-setupSingleSelect('setting', 'setting', 'next3');
-setupMultiSelect('population', 'population', 'next4');
-setupMultiSelect('challenges', 'challenges', 'next5');
-setupMultiSelect('products', 'products', 'next6');
-
-updateProgress();
-
-// ─── RESULTS GENERATION ───
-function generateResults() {
-  answers.orgName = document.getElementById('orgName').value;
-  answers.state = document.getElementById('orgState').value;
-  answers.orgSize = document.getElementById('orgSize').value;
-  answers.contactName = document.getElementById('contactName').value;
-  answers.contactEmail = document.getElementById('contactEmail').value;
-
-  const matched = [];
-  const partial = [];
-  const notMatch = [];
-
-  grants.forEach(g => {
-    const productOverlap = g.relevantProducts.filter(p => answers.products.includes(p));
-    if (g.eligibility(answers) && productOverlap.length > 0) {
-      matched.push({ ...g, matchLevel: 'high', productOverlap });
-    } else if (g.eligibility(answers)) {
-      matched.push({ ...g, matchLevel: 'high', productOverlap: g.relevantProducts.filter(p => answers.products.includes(p) || answers.products.length === 0) });
-    } else if (g.partialMatch(answers)) {
-      partial.push({ ...g, matchLevel: 'medium', productOverlap });
-    } else {
-      notMatch.push({ ...g, matchLevel: 'low', productOverlap });
+  const productTemplates = {
+    front_door: {
+      name: 'Front Door',
+      desc: 'AI-powered phone agent that answers every call 24/7, captures real intake data, qualifies leads, and flows structured records into your EHR.',
+      template: `Front Door AI Agent
+- Automatically answer every inbound call 24/7, eliminating "all staff busy" messages
+- Intelligently qualify leads and collect structured intake information
+- Generate structured clinical documentation that flows directly into the EHR
+- Enable rapid triage and appointment scheduling without manual staff intervention
+- Capture complete patient histories, reducing clinician documentation time`
+    },
+    intake: {
+      name: 'Intake Accelerator',
+      desc: 'Patients converse with AI to complete history, assessments, and medical history in a natural, therapeutic way.',
+      template: `Intake Accelerator
+- AI-powered conversational intake reduces appointment no-shows and streamlines onboarding
+- Captures comprehensive medical history, demographic data, and insurance information
+- Administers validated screening tools (PHQ-9, GAD-7, AUDIT-C) automatically
+- Generates structured clinical documentation ready for clinician review
+- Reduces intake bottleneck, enabling faster patient-clinician engagement`
+    },
+    sidekick: {
+      name: 'Sidekick Notes',
+      desc: 'AI listens to therapy sessions and completes clinical notes in seconds. Only solution with auto speaker ID for group therapy.',
+      template: `Sidekick Notes - Clinical Documentation
+- Real-time session documentation eliminates post-visit note burden for clinicians
+- Automatically identifies speakers in group and individual sessions
+- Generates SOAP-formatted notes with chief complaint, assessment, and plan
+- Captures therapeutic interventions, patient statements, and clinical reasoning
+- Reduces clinician documentation time by 60-70%, freeing capacity for patient care
+- Compliance-ready documentation supports EHR integration and billing workflows`
+    },
+    assess: {
+      name: 'Assess',
+      desc: 'Multimodal between-visit check-ins measuring patient health status via video, voice, and text analysis.',
+      template: `Assess - Between-Visit Monitoring
+- AI-powered remote patient monitoring tracks behavioral health status between appointments
+- Multimodal analysis: voice, video, and text to capture subtle changes in presentation
+- Automated detection of clinical deterioration, suicidality, or relapse risk
+- Enables early intervention before crisis escalation
+- Generates structured clinical summaries for clinician review
+- Real-time alerts flag high-risk patients for immediate clinician follow-up`
+    },
+    elevate: {
+      name: 'Sidekick Elevate',
+      desc: 'AI analyzes sessions for empathy, therapeutic alliance, evidence-based practices, and red flags with clinician feedback.',
+      template: `Sidekick Elevate - Clinical Supervision & Quality Assurance
+- AI observes live or recorded sessions and provides real-time clinical feedback
+- Measures therapeutic alliance, clinician empathy, and evidence-based practice fidelity
+- Flags missed screening opportunities, protocol deviations, and clinical red flags
+- Generates structured feedback reports to support clinician professional development
+- Enables scaling of clinical supervision across distributed care teams
+- Data-driven coaching improves clinical outcomes and patient satisfaction`
+    },
+    unify: {
+      name: 'Unify',
+      desc: 'AI documentation review helps complete documents faster and identifies issues before claims are submitted.',
+      template: `Unify - Revenue Cycle & Documentation Intelligence
+- AI pre-submission review identifies documentation gaps and compliance issues
+- Automated feedback on clinical specificity, billable elements, and denial risk factors
+- Prioritizes high-risk claims for human review before submission
+- Reduces denials and rework through evidence-based documentation guidance
+- Improves coding accuracy and revenue capture across encounters
+- Integrates with EHR to provide in-workflow alerts and suggestions`
     }
-  });
+  };
 
-  const allResults = [...matched, ...partial, ...notMatch.slice(0, 3)];
-  const orgDisplay = answers.orgName || 'Your Organization';
+  const grantsDatabase = [
+    {
+      id: 'samhsa_ccbhc_expansion',
+      name: 'SAMHSA CCBHC Expansion Grant',
+      funder: 'SAMHSA',
+      amount: 200000,
+      deadline: '2026-06-30',
+      relevantOrgTypes: ['ccbhc', 'fqhc'],
+      relevantCcbhcStatus: ['planning', 'interested'],
+      relevantPopulations: ['adults', 'children'],
+      relevantChallenges: ['access', 'screening', 'intake', 'outcomes'],
+      relevantProducts: ['front_door', 'intake', 'assess'],
+      description: 'Funding to expand CCBHC certification and enhance integrated behavioral health services in underserved communities.'
+    },
+    {
+      id: 'hrsa_sbh_integration',
+      name: 'HRSA Screening, Brief Intervention in BH',
+      funder: 'HRSA',
+      amount: 150000,
+      deadline: '2026-08-15',
+      relevantOrgTypes: ['fqhc', 'hospital'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning'],
+      relevantPopulations: ['adults', 'general'],
+      relevantChallenges: ['screening', 'access', 'outcomes'],
+      relevantProducts: ['assess', 'intake', 'front_door'],
+      description: 'Support for implementing standardized screening and brief intervention protocols in primary care and behavioral health settings.'
+    },
+    {
+      id: 'cdc_mental_health_surveillance',
+      name: 'CDC Mental Health Surveillance Initiative',
+      funder: 'CDC',
+      amount: 100000,
+      deadline: '2026-09-30',
+      relevantOrgTypes: ['state_agency', 'fqhc', 'hospital'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['general'],
+      relevantChallenges: ['outcomes', 'monitoring', 'screening'],
+      relevantProducts: ['assess', 'elevate'],
+      description: 'Funding to establish robust mental health outcome tracking and population-level surveillance systems.'
+    },
+    {
+      id: 'substance_abuse_prevention_grants',
+      name: 'SAMHSA Substance Abuse Prevention',
+      funder: 'SAMHSA',
+      amount: 175000,
+      deadline: '2026-07-31',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'other_provider'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient'],
+      relevantPopulations: ['adults', 'children', 'justice'],
+      relevantChallenges: ['access', 'screening', 'outcomes', 'monitoring'],
+      relevantProducts: ['front_door', 'assess', 'intake'],
+      description: 'Grants for substance use disorder prevention, treatment, and recovery support services with emphasis on evidence-based practices.'
+    },
+    {
+      id: 'workforce_development_bhtraining',
+      name: 'Behavioral Health Workforce Development',
+      funder: 'HRSA',
+      amount: 125000,
+      deadline: '2026-10-15',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'state_agency'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['quality', 'documentation', 'outcomes'],
+      relevantProducts: ['sidekick', 'elevate', 'unify'],
+      description: 'Support for training and professional development of behavioral health workforce, including supervision and quality improvement initiatives.'
+    },
+    {
+      id: 'nij_reentry_justice',
+      name: 'NIJ Criminal Justice Reentry Program',
+      funder: 'NIJ',
+      amount: 200000,
+      deadline: '2026-05-31',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'state_agency'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['justice', 'adults'],
+      relevantChallenges: ['access', 'monitoring', 'outcomes'],
+      relevantProducts: ['assess', 'front_door', 'intake'],
+      description: 'Competitive grants for programs supporting behavioral health services for justice-involved and reentry populations.'
+    },
+    {
+      id: 'samhsa_ai_innovation',
+      name: 'SAMHSA AI & Digital Health Innovation',
+      funder: 'SAMHSA',
+      amount: 250000,
+      deadline: '2026-09-30',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital', 'health_plan', 'state_agency'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['adults', 'children', 'general'],
+      relevantChallenges: ['documentation', 'screening', 'access', 'outcomes', 'quality'],
+      relevantProducts: ['sidekick', 'assess', 'front_door', 'elevate', 'unify'],
+      description: 'Innovation grants to test and evaluate AI and digital health technologies that improve behavioral health outcomes and care access.'
+    },
+    {
+      id: 'usda_rural_health_grants',
+      name: 'USDA Rural Health Care Program',
+      funder: 'USDA',
+      amount: 80000,
+      deadline: '2026-08-31',
+      relevantOrgTypes: ['fqhc', 'hospital', 'other_provider'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['adults', 'general'],
+      relevantChallenges: ['access', 'documentation', 'monitoring'],
+      relevantProducts: ['assess', 'front_door', 'sidekick'],
+      description: 'Grants for rural healthcare programs to improve mental health and substance use disorder services access.'
+    },
+    {
+      id: 'va_veteran_mental_health',
+      name: 'VA Community Care Partnerships',
+      funder: 'VA',
+      amount: 150000,
+      deadline: '2026-07-15',
+      relevantOrgTypes: ['fqhc', 'hospital', 'ccbhc'],
+      relevantCcbhcStatus: [],
+      relevantPopulations: ['veterans', 'adults'],
+      relevantChallenges: ['access', 'monitoring', 'outcomes', 'screening'],
+      relevantProducts: ['assess', 'front_door', 'intake'],
+      description: 'Partnership grants for community providers offering behavioral health services to veterans and military-connected populations.'
+    },
+    {
+      id: 'nida_addiction_research',
+      name: 'NIDA Treatment Innovation Research',
+      funder: 'NIDA',
+      amount: 180000,
+      deadline: '2026-10-01',
+      relevantOrgTypes: ['ccbhc', 'fqhc', 'hospital'],
+      relevantCcbhcStatus: ['certified', 'grant_recipient'],
+      relevantPopulations: ['adults', 'justice'],
+      relevantChallenges: ['outcomes', 'quality', 'monitoring', 'screening'],
+      relevantProducts: ['assess', 'elevate', 'unify'],
+      description: 'Research grants testing innovative approaches to substance use disorder treatment outcomes and quality improvement.'
+    }
+  ];
 
-  let html = `
-    <div class="summary-header">
-      <h2>Your Grant Matches</h2>
-      <p>Personalized results for ${orgDisplay}${answers.state ? ', ' + answers.state : ''}</p>
-      <div class="summary-stats">
-        <div class="stat"><div class="num">${matched.length}</div><div class="lbl">Strong Matches</div></div>
-        <div class="stat"><div class="num">${partial.length}</div><div class="lbl">Possible Matches</div></div>
-        <div class="stat"><div class="num">${answers.products.length}</div><div class="lbl">Products Selected</div></div>
-      </div>
-    </div>
-    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
-    <button class="print-btn" style="background:var(--accent);margin-left:0.5rem;" onclick="exportResults()">📋 Copy Summary</button>
-  `;
+  // State management
+  const answers = {
+    orgType: null,
+    ccbhcStatus: null,
+    setting: null,
+    population: [],
+    challenges: [],
+    products: [],
+    orgName: '',
+    orgState: '',
+    orgSize: ''
+  };
 
-  // Tab filter
-  html += `
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="filterGrants('all',this)">All (${allResults.length})</button>
-      <button class="tab-btn" onclick="filterGrants('high',this)">Strong Matches (${matched.length})</button>
-      <button class="tab-btn" onclick="filterGrants('medium',this)">Possible (${partial.length})</button>
-    </div>
-  `;
+  let currentStep = 1;
 
-  html += '<div id="grantList">';
-  allResults.forEach((g, i) => {
-    const badgeClass = g.matchLevel === 'high' ? 'match-high' : g.matchLevel === 'medium' ? 'match-med' : 'match-low';
-    const badgeText = g.matchLevel === 'high' ? 'Strong Match' : g.matchLevel === 'medium' ? 'Possible Match' : 'Explore';
-    const cardClass = g.matchLevel === 'low' ? 'low-match' : '';
+  function updateProgress() {
+    const percent = (currentStep / totalSteps) * 100;
+    document.getElementById('progressFill').style.width = percent + '%';
+    document.getElementById('progressLabel').textContent = `Step ${currentStep} of ${totalSteps}`;
+  }
 
-    // Determine relevant Videra products for this grant
-    const relevantProds = g.relevantProducts
-      .filter(p => answers.products.includes(p))
-      .map(p => productTemplates[p]?.name || p);
+  function goStep(n) {
+    if (n < 1 || n > totalSteps + 1) return;
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    if (n <= totalSteps) {
+      document.getElementById('step' + n).classList.add('active');
+      currentStep = n;
+    } else {
+      generateResults();
+      document.getElementById('results').classList.add('active');
+    }
+    updateProgress();
+    window.scrollTo(0, 0);
+  }
 
-    html += `
-      <div class="grant-card ${cardClass}" data-match="${g.matchLevel}">
+  function setupSingleSelect(elementId, answerKey) {
+    const buttons = document.getElementById(elementId).querySelectorAll('.opt-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        answers[answerKey] = btn.dataset.value;
+        updateNextButtons();
+      });
+    });
+  }
+
+  function setupMultiSelect(elementId, answerKey) {
+    const buttons = document.getElementById(elementId).querySelectorAll('.opt-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('selected');
+        answers[answerKey] = Array.from(buttons)
+          .filter(b => b.classList.contains('selected'))
+          .map(b => b.dataset.value);
+        updateNextButtons();
+      });
+    });
+  }
+
+  function updateNextButtons() {
+    document.getElementById('next1').disabled = !answers.orgType;
+    document.getElementById('next2').disabled = !answers.ccbhcStatus;
+    document.getElementById('next3').disabled = !answers.setting;
+    document.getElementById('next4').disabled = answers.population.length === 0;
+    document.getElementById('next5').disabled = answers.challenges.length === 0;
+    document.getElementById('next6').disabled = !answers.orgName || !answers.orgState || !answers.orgSize;
+  }
+
+  function generateResults() {
+    // Auto-derive products from challenges
+    const derivedProducts = new Set();
+    answers.challenges.forEach(challenge => {
+      const productsForChallenge = challengeToProducts[challenge] || [];
+      productsForChallenge.forEach(p => derivedProducts.add(p));
+    });
+    answers.products = Array.from(derivedProducts);
+
+    // Filter grants
+    const matchedGrants = grantsDatabase.filter(grant => {
+      const typeMatch = grant.relevantOrgTypes.includes(answers.orgType);
+      const ccbhcMatch = grant.relevantCcbhcStatus.length === 0 || grant.relevantCcbhcStatus.includes(answers.ccbhcStatus);
+      const popMatch = grant.relevantPopulations.some(p => answers.population.includes(p));
+      const chalMatch = grant.relevantChallenges.some(c => answers.challenges.includes(c));
+      return typeMatch && ccbhcMatch && popMatch && chalMatch;
+    });
+
+    // Score and sort matches
+    const scoredGrants = matchedGrants.map(grant => {
+      const chalMatches = grant.relevantChallenges.filter(c => answers.challenges.includes(c)).length;
+      const maxChalMatches = grant.relevantChallenges.length;
+      const chalScore = maxChalMatches > 0 ? chalMatches / maxChalMatches : 0;
+      return { grant, score: chalScore };
+    }).sort((a, b) => b.score - a.score);
+
+    // Update summary stats
+    const uniqueProducts = new Set(answers.products);
+    const totalFunding = scoredGrants.reduce((sum, sg) => sum + sg.grant.amount, 0) / 1000000;
+    document.getElementById('statMatches').textContent = scoredGrants.length;
+    document.getElementById('statProducts').textContent = uniqueProducts.size;
+    document.getElementById('statFunding').textContent = '$' + totalFunding.toFixed(1) + 'M';
+
+    // Render grant cards
+    const container = document.getElementById('resultsContainer');
+    container.innerHTML = '';
+
+    if (scoredGrants.length === 0) {
+      container.innerHTML = '<p style="text-align:center;color:var(--text-light);font-size:1rem;padding:2rem;">No grants matched your profile. Try adjusting your challenges or organizational type.</p>';
+      return;
+    }
+
+    scoredGrants.forEach((sg, idx) => {
+      const grant = sg.grant;
+      const matchPercent = Math.round(sg.score * 100);
+      let badgeClass = 'match-high';
+      if (matchPercent < 50) badgeClass = 'match-low';
+      else if (matchPercent < 75) badgeClass = 'match-med';
+
+      // Relevant products for this grant
+      const relevantProds = answers.products.filter(p => grant.relevantProducts.includes(p));
+
+      const card = document.createElement('div');
+      card.className = 'grant-card' + (matchPercent < 50 ? ' low-match' : '');
+
+      let html = `
         <div class="grant-header">
-          <div class="grant-name">${g.name}</div>
-          <span class="match-badge ${badgeClass}">${badgeText}</span>
+          <div class="grant-name">${grant.name}</div>
+          <span class="match-badge ${badgeClass}">${matchPercent}% Match</span>
         </div>
         <div class="grant-meta">
-          <span>🏛️ ${g.agency}</span>
-          <span>💰 ${g.amount}</span>
-          <span>📅 ${g.deadline}</span>
+          <span>💰 $${grant.amount.toLocaleString()}</span>
+          <span>📅 Deadline: ${new Date(grant.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          <span>🏢 ${grant.funder}</span>
         </div>
-        <div class="grant-desc">${g.description}</div>
-        ${relevantProds.length > 0 ? `
+        <p class="grant-desc">${grant.description}</p>
+      `;
+
+      if (relevantProds.length > 0) {
+        html += `
           <div class="products-fit">
-            <h4>Videra Products That Fit This Grant:</h4>
-            ${relevantProds.map(p => `<span class="product-tag">${p}</span>`).join('')}
+            <h4>Relevant Videra Products:</h4>
+            ${relevantProds.map(p => `<span class="product-tag">${productTemplates[p].name}</span>`).join('')}
           </div>
-        ` : ''}
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;">
-          <button class="expand-toggle" onclick="toggleExpand('checklist${i}', this)">📋 Application Checklist ▸</button>
-          <button class="expand-toggle" onclick="toggleExpand('template${i}', this)">📝 Grant Language Templates ▸</button>
-          <a href="${g.link}" target="_blank" class="expand-toggle" style="text-decoration:none;">🔗 Official Grant Page ↗</a>
+        `;
+      }
+
+      // Application builder section
+      html += `
+        <div class="app-builder">
+          <h5>Build Your Application Language</h5>
+          <div class="form-group">
+            <label>How many patients/clients does your organization serve annually?</label>
+            <input type="text" class="patient-count-${idx}" placeholder="e.g., 5000">
+          </div>
+          <div class="form-group">
+            <label>What is the primary gap this grant would address?</label>
+            <textarea class="primary-gap-${idx}" placeholder="Describe the key challenge or opportunity..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>What outcomes do you hope to achieve in Year 1?</label>
+            <textarea class="year1-outcomes-${idx}" placeholder="e.g., 30% reduction in wait times, improve screening rate to 95%..."></textarea>
+          </div>
+          <button class="generate-btn" onclick="generateAppLanguage(${idx}, '${grant.id}')">Generate Application Language</button>
+          <div class="generated-${idx}"></div>
         </div>
-        <div class="expand-content" id="checklist${i}">
-          <h4 style="margin-bottom:0.5rem;color:var(--primary);">Application Checklist</h4>
+      `;
+
+      // Submission requirements section
+      html += `
+        <button class="expand-toggle" onclick="toggleExpand(event)">
+          📋 Grant Submission Requirements <span style="font-size:0.7rem;">▼</span>
+        </button>
+        <div class="expand-content">
           <ul class="checklist">
-            ${g.checklist.map(item => `<li><span class="bullet">▹</span>${item}</li>`).join('')}
+            <li><span class="bullet">□</span> Completed grant application form</li>
+            <li><span class="bullet">□</span> Organization's mission statement and 501(c)(3) determination letter (if applicable)</li>
+            <li><span class="bullet">□</span> Organizational chart and staff qualifications relevant to the project</li>
+            <li><span class="bullet">□</span> Detailed project narrative describing goals, methods, timelines, and expected outcomes</li>
+            <li><span class="bullet">□</span> Evidence of need: epidemiological data, community assessment, and gap analysis</li>
+            <li><span class="bullet">□</span> Letters of support from partners, community organizations, or healthcare systems</li>
+            <li><span class="bullet">□</span> Detailed budget narrative with justification for all line items</li>
+            <li><span class="bullet">□</span> Evaluation plan with specific, measurable outcome indicators and data collection methods</li>
+            <li><span class="bullet">□</span> Timeline for project milestones and deliverables</li>
+            <li><span class="bullet">□</span> Data security and confidentiality plan (especially if handling PHI)</li>
+            <li><span class="bullet">□</span> Sustainability plan describing how the project will continue after grant funding ends</li>
+            <li><span class="bullet">□</span> Organizational financial statements (usually last 2 years)</li>
+            <li><span class="bullet">□</span> Board of Directors list with affiliations</li>
+            <li><span class="bullet">□</span> Indirect cost rate agreement (if using F&A recovery)</li>
           </ul>
         </div>
-        <div class="expand-content" id="template${i}">
-          <h4 style="margin-bottom:0.5rem;color:var(--primary);">Draft Grant Language — Customize for Your Application</h4>
-          ${g.relevantProducts.filter(p => answers.products.includes(p)).map(p => `
-            <div style="margin-bottom:1rem;">
-              <strong style="font-size:0.9rem;">${productTemplates[p].name}</strong>
-              <div class="template-text">${productTemplates[p].grantLanguage(answers.orgName)}</div>
-              <button class="copy-btn" onclick="copyText(this)">📋 Copy to clipboard</button>
-            </div>
-          `).join('') || '<p style="color:var(--text-light);font-size:0.88rem;">Select matching Videra products in the questionnaire to see tailored grant language here.</p>'}
-        </div>
-      </div>
-    `;
-  });
-  html += '</div>';
+      `;
 
-  html += `
-    <div style="margin-top:2rem;padding:1.5rem;background:#ebf5fb;border-radius:var(--radius);text-align:center;">
-      <h3 style="color:var(--primary);margin-bottom:0.5rem;">Ready to Apply?</h3>
-      <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:1rem;">
-        Videra Health's team can help you customize this grant language, provide additional data points, and support your application process.
-      </p>
-      <a href="mailto:ryan@viderahealth.com?subject=Grant%20Application%20Support%20—%20${encodeURIComponent(orgDisplay)}&body=${encodeURIComponent('Hi Videra team,\n\nI used the Grant Finder tool and found several matching opportunities. I\'d like help with my grant application.\n\nOrganization: ' + orgDisplay + '\nState: ' + (answers.state||'N/A') + '\n\nThank you!')}"
-        style="display:inline-block;padding:0.7rem 2rem;background:var(--accent);color:white;text-decoration:none;border-radius:8px;font-weight:600;font-size:0.95rem;">
-        Contact Videra for Application Support
-      </a>
-    </div>
-    <div class="nav" style="margin-top:1.5rem;">
-      <button class="btn btn-back" onclick="goStep(7)">← Edit Answers</button>
-      <div></div>
-    </div>
-  `;
-
-  document.getElementById('resultsContent').innerHTML = html;
-  goStep(8);
-  document.getElementById('progressFill').style.width = '100%';
-  document.getElementById('progressLabel').textContent = 'Complete';
-}
-
-function toggleExpand(id, btn) {
-  const el = document.getElementById(id);
-  el.classList.toggle('open');
-  if (btn.textContent.includes('▸')) {
-    btn.textContent = btn.textContent.replace('▸', '▾');
-  } else {
-    btn.textContent = btn.textContent.replace('▾', '▸');
+      card.innerHTML = html;
+      container.appendChild(card);
+    });
   }
-}
 
-function filterGrants(level, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.grant-card').forEach(card => {
-    if (level === 'all' || card.dataset.match === level) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
+  function generateAppLanguage(grantIdx, grantId) {
+    const patientCount = document.querySelector(`.patient-count-${grantIdx}`).value || '[PATIENT_COUNT]';
+    const primaryGap = document.querySelector(`.primary-gap-${grantIdx}`).value || '[PRIMARY_GAP]';
+    const year1Outcomes = document.querySelector(`.year1-outcomes-${grantIdx}`).value || '[YEAR_1_OUTCOMES]';
+
+    const grant = grantsDatabase.find(g => g.id === grantId);
+    const relevantProds = answers.products.filter(p => grant.relevantProducts.includes(p));
+
+    let generatedText = `<strong>Project Narrative:</strong>\n\n`;
+    generatedText += `${answers.orgName} serves approximately ${patientCount} patients and clients annually across our behavioral health services. The organization faces a critical challenge: ${primaryGap}\n\n`;
+    generatedText += `To address this gap, we propose implementing the following evidence-based solutions:\n\n`;
+
+    relevantProds.forEach(productId => {
+      const product = productTemplates[productId];
+      generatedText += `${product.name}\n`;
+      generatedText += `${product.template.split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')}\n\n`;
+    });
+
+    generatedText += `Expected Year 1 Outcomes:\n`;
+    generatedText += `${year1Outcomes}\n\n`;
+    generatedText += `Through this grant, we will advance our organizational capacity to deliver superior outcomes for the individuals we serve.`;
+
+    const container = document.querySelector(`.generated-${grantIdx}`);
+    container.innerHTML = `
+      <div class="generated-text">
+        ${generatedText.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('')}
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard(this)">📋 Copy All</button>
+    `;
+  }
+
+  function copyToClipboard(btn) {
+    const text = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => btn.textContent = originalText, 2000);
+    });
+  }
+
+  function toggleExpand(event) {
+    const toggle = event.target.closest('.expand-toggle');
+    const content = toggle.nextElementSibling;
+    content.classList.toggle('open');
+    const arrow = toggle.querySelector('span');
+    if (arrow) arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+  }
+
+  // Initialize
+  setupSingleSelect('orgType', 'orgType');
+  setupSingleSelect('ccbhcStatus', 'ccbhcStatus');
+  setupSingleSelect('setting', 'setting');
+  setupMultiSelect('population', 'population');
+  setupMultiSelect('challenges', 'challenges');
+
+  // Org details handling
+  document.getElementById('orgName').addEventListener('change', (e) => {
+    answers.orgName = e.target.value;
+    updateNextButtons();
   });
-}
-
-function copyText(btn) {
-  const text = btn.previousElementSibling.textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.innerHTML;
-    btn.innerHTML = '✅ Copied!';
-    setTimeout(() => btn.innerHTML = orig, 2000);
+  document.getElementById('orgState').addEventListener('change', (e) => {
+    answers.orgState = e.target.value;
+    updateNextButtons();
   });
-}
-
-function exportResults() {
-  const orgDisplay = answers.orgName || 'Your Organization';
-  let text = `VIDERA HEALTH GRANT FINDER — RESULTS\n${'='.repeat(50)}\nOrganization: ${orgDisplay}\nState: ${answers.state || 'N/A'}\nDate: ${new Date().toLocaleDateString()}\n\n`;
-
-  document.querySelectorAll('.grant-card').forEach(card => {
-    const name = card.querySelector('.grant-name').textContent;
-    const badge = card.querySelector('.match-badge').textContent;
-    text += `[${badge}] ${name}\n`;
+  document.getElementById('orgSize').addEventListener('change', (e) => {
+    answers.orgSize = e.target.value;
+    updateNextButtons();
   });
 
-  text += `\n\nGenerated by Videra Health Grant Finder\nContact: ryan@viderahealth.com`;
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Summary copied to clipboard!');
-  });
-}
+  // Navigation handlers
+  document.getElementById('next1').addEventListener('click', () => goStep(2));
+  document.getElementById('next2').addEventListener('click', () => goStep(3));
+  document.getElementById('next3').addEventListener('click', () => goStep(4));
+  document.getElementById('next4').addEventListener('click', () => goStep(5));
+  document.getElementById('next5').addEventListener('click', () => goStep(6));
+  document.getElementById('next6').addEventListener('click', () => goStep(7));
+
+  updateProgress();
 </script>
+
 </body>
 </html>
