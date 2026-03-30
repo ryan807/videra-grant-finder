@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Videra Health — Grant Finder & Application Assistant</title>
+<title>Videra Health â Grant Finder & Application Assistant</title>
 <style>
   :root {
     --primary: #1a5276;
@@ -84,7 +84,7 @@
     transition: all 0.15s;
   }
   .opt-btn.selected .check { background: var(--accent); border-color: var(--accent); }
-  .opt-btn.selected .check::after { content: '✓'; color: white; font-size: 0.8rem; font-weight: bold; }
+  .opt-btn.selected .check::after { content: 'â'; color: white; font-size: 0.8rem; font-weight: bold; }
 
   /* Text input */
   .text-input {
@@ -258,37 +258,37 @@
     <p class="subtitle">Select the option that best describes your organization.</p>
     <div class="options" id="orgType">
       <button class="opt-btn" data-value="ccbhc">
-        <span class="icon">🏥</span>
+        <span class="icon">ð¥</span>
         <div><div class="label">Community Behavioral Health Center (CCBHC)</div>
         <div class="desc">Certified or pursuing CCBHC certification</div></div>
       </button>
       <button class="opt-btn" data-value="fqhc">
-        <span class="icon">🏢</span>
+        <span class="icon">ð¢</span>
         <div><div class="label">Federally Qualified Health Center (FQHC)</div>
         <div class="desc">Community health center with federal funding</div></div>
       </button>
       <button class="opt-btn" data-value="hospital">
-        <span class="icon">🏨</span>
+        <span class="icon">ð¨</span>
         <div><div class="label">Hospital / Health System</div>
         <div class="desc">Hospital, health system, or academic medical center</div></div>
       </button>
       <button class="opt-btn" data-value="health_plan">
-        <span class="icon">📋</span>
+        <span class="icon">ð</span>
         <div><div class="label">Health Plan / MCO</div>
         <div class="desc">Managed care organization, Medicaid plan, or payer</div></div>
       </button>
       <button class="opt-btn" data-value="state_agency">
-        <span class="icon">🏛️</span>
+        <span class="icon">ðï¸</span>
         <div><div class="label">State / County Agency</div>
         <div class="desc">State mental health authority, county behavioral health</div></div>
       </button>
       <button class="opt-btn" data-value="other_provider">
-        <span class="icon">🩺</span>
+        <span class="icon">ð©º</span>
         <div><div class="label">Other Behavioral Health Provider</div>
         <div class="desc">Private practice, nonprofit clinic, or other provider</div></div>
       </button>
     </div>
-    <div class="nav"><div></div><button class="btn btn-next" id="next1" disabled>Next →</button></div>
+    <div class="nav"><div></div><button class="btn btn-next" id="next1" disabled>Next â</button></div>
   </div>
 
   <!-- STEP 2: CCBHC Status -->
@@ -297,34 +297,34 @@
     <p class="subtitle">This helps us identify SAMHSA-specific funding opportunities.</p>
     <div class="options" id="ccbhcStatus">
       <button class="opt-btn" data-value="certified">
-        <span class="icon">✅</span>
+        <span class="icon">â</span>
         <div><div class="label">Certified CCBHC</div>
         <div class="desc">Already certified through state or SAMHSA demonstration</div></div>
       </button>
       <button class="opt-btn" data-value="grant_recipient">
-        <span class="icon">📄</span>
+        <span class="icon">ð</span>
         <div><div class="label">Current CCBHC Grant Recipient</div>
         <div class="desc">Have an active CCBHC expansion or IA grant</div></div>
       </button>
       <button class="opt-btn" data-value="planning">
-        <span class="icon">📐</span>
+        <span class="icon">ð</span>
         <div><div class="label">Planning / Pursuing Certification</div>
         <div class="desc">Actively working toward CCBHC certification</div></div>
       </button>
       <button class="opt-btn" data-value="interested">
-        <span class="icon">🤔</span>
+        <span class="icon">ð¤</span>
         <div><div class="label">Interested but Haven't Started</div>
         <div class="desc">Want to learn more about CCBHC model</div></div>
       </button>
       <button class="opt-btn" data-value="not_applicable">
-        <span class="icon">➖</span>
+        <span class="icon">â</span>
         <div><div class="label">Not Applicable</div>
         <div class="desc">CCBHC model doesn't apply to our organization</div></div>
       </button>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(1)">← Back</button>
-      <button class="btn btn-next" id="next2" disabled>Next →</button>
+      <button class="btn btn-back" onclick="goStep(1)">â Back</button>
+      <button class="btn btn-next" id="next2" disabled>Next â</button>
     </div>
   </div>
 
@@ -334,29 +334,29 @@
     <p class="subtitle">Several grants prioritize rural and underserved areas.</p>
     <div class="options" id="setting">
       <button class="opt-btn" data-value="rural">
-        <span class="icon">🌾</span>
+        <span class="icon">ð¾</span>
         <div><div class="label">Rural</div>
         <div class="desc">Serving a rural or frontier community</div></div>
       </button>
       <button class="opt-btn" data-value="urban_underserved">
-        <span class="icon">🏙️</span>
-        <div><div class="label">Urban — Underserved</div>
+        <span class="icon">ðï¸</span>
+        <div><div class="label">Urban â Underserved</div>
         <div class="desc">Urban area with significant unmet behavioral health needs</div></div>
       </button>
       <button class="opt-btn" data-value="urban">
-        <span class="icon">🌆</span>
+        <span class="icon">ð</span>
         <div><div class="label">Urban / Suburban</div>
         <div class="desc">General urban or suburban community</div></div>
       </button>
       <button class="opt-btn" data-value="mixed">
-        <span class="icon">🗺️</span>
+        <span class="icon">ðºï¸</span>
         <div><div class="label">Mixed / Multiple Regions</div>
         <div class="desc">Serve across rural and urban areas</div></div>
       </button>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(2)">← Back</button>
-      <button class="btn btn-next" id="next3" disabled>Next →</button>
+      <button class="btn btn-back" onclick="goStep(2)">â Back</button>
+      <button class="btn btn-next" id="next3" disabled>Next â</button>
     </div>
   </div>
 
@@ -392,15 +392,15 @@
       </button>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(3)">← Back</button>
-      <button class="btn btn-next" id="next4" disabled>Next →</button>
+      <button class="btn btn-back" onclick="goStep(3)">â Back</button>
+      <button class="btn btn-next" id="next4" disabled>Next â</button>
     </div>
   </div>
 
   <!-- STEP 5: Challenges -->
   <div class="step" id="step5">
     <h2>What are your biggest operational challenges?</h2>
-    <p class="subtitle">Select all that apply — we'll auto-match you with the right Videra solutions and grants.</p>
+    <p class="subtitle">Select all that apply â we'll auto-match you with the right Videra solutions and grants.</p>
     <div class="options" id="challenges">
       <button class="opt-btn" data-value="access">
         <div class="check"></div>
@@ -444,8 +444,8 @@
       </button>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(4)">← Back</button>
-      <button class="btn btn-next" id="next5" disabled>Next →</button>
+      <button class="btn btn-back" onclick="goStep(4)">â Back</button>
+      <button class="btn btn-next" id="next5" disabled>Next â</button>
     </div>
   </div>
 
@@ -481,21 +481,21 @@
         <label style="font-weight:600;font-size:0.9rem;display:block;margin-bottom:0.3rem;">Approximate Number of Clinicians</label>
         <select class="text-input" id="orgSize">
           <option value="">Select range...</option>
-          <option value="small">1–25 clinicians</option>
-          <option value="medium">26–100 clinicians</option>
+          <option value="small">1â25 clinicians</option>
+          <option value="medium">26â100 clinicians</option>
           <option value="large">100+ clinicians</option>
         </select>
       </div>
     </div>
     <div class="nav">
-      <button class="btn btn-back" onclick="goStep(5)">← Back</button>
-      <button class="btn btn-next" id="next6" disabled>Next →</button>
+      <button class="btn btn-back" onclick="goStep(5)">â Back</button>
+      <button class="btn btn-next" id="next6" disabled>Next â</button>
     </div>
   </div>
 
   <!-- RESULTS PAGE -->
   <div class="step results-step" id="results">
-    <button class="print-btn" onclick="window.print()">🖨️ Print Results</button>
+    <button class="print-btn" onclick="window.print()">ð¨ï¸ Print Results</button>
 
     <div class="summary-header">
       <h2>Your Grant Matches</h2>
@@ -520,7 +520,7 @@
     <div class="results-section" id="resultsContainer"></div>
 
     <div style="text-align:center;margin-top:2rem;">
-      <button class="btn btn-back" onclick="goStep(6)">← Back to Edit Answers</button>
+      <button class="btn btn-back" onclick="goStep(6)">â Back to Edit Answers</button>
     </div>
   </div>
 
@@ -545,7 +545,7 @@
       name: 'Front Door',
       vision: 'Capture Every Inquiry, 24/7',
       howItHelps: 'Responds instantly via text, voice, chat, qualifies leads and captures scheduling preferences.',
-      features: [
+      features [[
         'Automatically answer every inbound call 24/7, eliminating "all staff busy" messages',
         'Intelligently qualify leads and collect structured intake information',
         'Generate structured clinical documentation that flows directly into the EHR',
@@ -581,7 +581,7 @@
     assess: {
       name: 'Assess',
       vision: 'See Patients Between Visits',
-      howItHelps: 'Multimodal check-ins measure patient health status via video, voice, text analysis — catching deterioration early.',
+      howItHelps: 'Multimodal check-ins measure patient health status via video, voice, text analysis â catching deterioration early.',
       features: [
         'AI-powered remote patient monitoring tracks behavioral health status between appointments',
         'Multimodal analysis: voice, video, and text to capture subtle changes in presentation',
@@ -695,7 +695,7 @@
       name: 'NIH/AHRQ Digital Healthcare Solutions Grants (R21/R33)',
       funder: 'NIH / AHRQ',
       amount: 500000,
-      deadline: 'Rolling — Multiple cycles per year',
+      deadline: 'Rolling â Multiple cycles per year',
       link: 'https://www.socialroots.ai/grant-success-stories/nih-ahrq-digital-healthcare-solutions-grants-2026',
       relevantOrgTypes: ['hospital', 'fqhc', 'state_agency'],
       relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
@@ -709,7 +709,7 @@
       name: 'USDA Distance Learning & Telemedicine (DLT) Grants',
       funder: 'USDA',
       amount: 500000,
-      deadline: '2026-Q1 — Annual cycle',
+      deadline: '2026-Q1 â Annual cycle',
       link: 'https://www.rd.usda.gov/programs-services/telecommunications-programs/distance-learning-telemedicine-grants',
       relevantOrgTypes: ['fqhc', 'hospital', 'other_provider', 'ccbhc'],
       relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
@@ -723,7 +723,7 @@
       name: 'FCC Connected Care Pilot / Rural Telehealth Initiative',
       funder: 'FCC',
       amount: 400000,
-      deadline: 'Periodic — Check FCC announcements',
+      deadline: 'Periodic â Check FCC announcements',
       link: 'https://www.fcc.gov/connected-care-pilot-program',
       relevantOrgTypes: ['fqhc', 'ccbhc', 'hospital', 'other_provider'],
       relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
@@ -737,7 +737,7 @@
       name: 'SAMHSA Block Grants (via State Mental Health Authority)',
       funder: 'SAMHSA (via State)',
       amount: 500000,
-      deadline: 'State-dependent — Contact your SMHA',
+      deadline: 'State-dependent â Contact your SMHA',
       link: 'https://www.samhsa.gov/grants/block-grants',
       relevantOrgTypes: ['ccbhc', 'fqhc', 'other_provider', 'state_agency'],
       relevantCcbhcStatus: ['certified', 'grant_recipient', 'planning', 'interested', 'not_applicable'],
@@ -751,7 +751,7 @@
       name: 'State CCBHC Medicaid Demonstration Program',
       funder: 'CMS / State Medicaid',
       amount: 1000000,
-      deadline: 'State-dependent enrollment windows',
+      deadline `'State-dependent enrollment windows',
       link: 'https://www.samhsa.gov/communities/certified-community-behavioral-health-clinics/section-223',
       relevantOrgTypes: ['ccbhc'],
       relevantCcbhcStatus: ['certified', 'grant_recipient'],
@@ -893,7 +893,7 @@
       const card = document.createElement('div');
       card.className = 'grant-card' + (matchPercent < 50 ? ' low-match' : '');
 
-      // Format deadline — handle both date strings and descriptive text
+      // Format deadline â handle both date strings and descriptive text
       let deadlineDisplay = grant.deadline;
       if (/^\d{4}-\d{2}-\d{2}$/.test(grant.deadline)) {
         deadlineDisplay = new Date(grant.deadline).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -905,12 +905,12 @@
           <span class="match-badge ${badgeClass}">${matchPercent}% Match</span>
         </div>
         <div class="grant-meta">
-          <span>🏛️ ${grant.funder}</span>
-          <span>💰 $${grant.amount >= 1000000 ? (grant.amount/1000000) + 'M/year' : (grant.amount/1000) + 'K'}</span>
-          <span>📅 ${deadlineDisplay}</span>
+          <span>ðï¸ ${grant.funder}</span>
+          <span>ð° $${grant.amount >= 1000000 ? (grant.amount/1000000) + 'M/year' : (grant.amount/1000) + 'K'}</span>
+          <span>ð ${deadlineDisplay}</span>
         </div>
         <p class="grant-desc">${grant.description}</p>
-        ${grant.link ? `<a href="${grant.link}" target="_blank" class="expand-toggle" style="text-decoration:none;margin-bottom:0.3rem;">🔗 Official Grant Page ↗</a>` : ''}
+        ${grant.link ? `<a href="${grant.link}" target="_blank" class="expand-toggle" style="text-decoration:none;margin-bottom:0.3rem;">ð Official Grant Page â</a>` : ''}
       `;
 
       if (relevantProds.length > 0) {
@@ -949,24 +949,24 @@
       // Submission requirements section
       html += `
         <button class="expand-toggle" onclick="toggleExpand(event)">
-          📋 Grant Submission Requirements <span style="font-size:0.7rem;">▼</span>
+          ð Grant Submission Requirements <span style="font-size:0.7rem;">â¼</span>
         </button>
         <div class="expand-content">
           <ul class="checklist">
-            <li><span class="bullet">□</span> Completed grant application form</li>
-            <li><span class="bullet">□</span> Organization's mission statement and 501(c)(3) determination letter (if applicable)</li>
-            <li><span class="bullet">□</span> Organizational chart and staff qualifications relevant to the project</li>
-            <li><span class="bullet">□</span> Detailed project narrative describing goals, methods, timelines, and expected outcomes</li>
-            <li><span class="bullet">□</span> Evidence of need: epidemiological data, community assessment, and gap analysis</li>
-            <li><span class="bullet">□</span> Letters of support from partners, community organizations, or healthcare systems</li>
-            <li><span class="bullet">□</span> Detailed budget narrative with justification for all line items</li>
-            <li><span class="bullet">□</span> Evaluation plan with specific, measurable outcome indicators and data collection methods</li>
-            <li><span class="bullet">□</span> Timeline for project milestones and deliverables</li>
-            <li><span class="bullet">□</span> Data security and confidentiality plan (especially if handling PHI)</li>
-            <li><span class="bullet">□</span> Sustainability plan describing how the project will continue after grant funding ends</li>
-            <li><span class="bullet">□</span> Organizational financial statements (usually last 2 years)</li>
-            <li><span class="bullet">□</span> Board of Directors list with affiliations</li>
-            <li><span class="bullet">□</span> Indirect cost rate agreement (if using F&A recovery)</li>
+            <li><span class="bullet">â¡</span> Completed grant application form</li>
+            <li><span class="bullet">â¡</span> Organization's mission statement and 501(c)(3) determination letter (if applicable)</li>
+            <li><span class="bullet">â¡</span> Organizational chart and staff qualifications relevant to the project</li>
+            <li><span class="bullet">â¡</span> Detailed project narrative describing goals, methods, timelines, and expected outcomes</li>
+            <li><span class="bullet">â¡</span> Evidence of need: epidemiological data, community assessment, and gap analysis</li>
+            <li><span class="bullet">â¡</span> Letters of support from partners, community organizations, or healthcare systems</li>
+            <li><span class="bullet">â¡</span> Detailed budget narrative with justification for all line items</li>
+            <li><span class="bullet">â¡</span> Evaluation plan with specific, measurable outcome indicators and data collection methods</li>
+            <li><span class="bullet">â¡</span> Timeline for project milestones and deliverables</li>
+            <li><span class="bullet">â¡</span> Data security and confidentiality plan (especially if handling PHI)</li>
+            <li><span class="bullet">â¡</span> Sustainability plan describing how the project will continue after grant funding ends</li>
+            <li><span class="bullet">â¡</span> Organizational financial statements (usually last 2 years)</li>
+            <li><span class="bullet">â¡</span> Board of Directors list with affiliations</li>
+            <li><span class="bullet">â¡</span> Indirect cost rate agreement (if using F&A recovery)</li>
           </ul>
         </div>
       `;
@@ -1008,7 +1008,7 @@
       <div class="generated-text">
         ${generatedHtml}
       </div>
-      <button class="copy-btn" onclick="copyToClipboard(this)">📋 Copy All</button>
+      <button class="copy-btn" onclick="copyToClipboard(this)">ð Copy All</button>
     `;
   }
 
@@ -1016,7 +1016,7 @@
     const text = btn.previousElementSibling.innerText;
     navigator.clipboard.writeText(text).then(() => {
       const originalText = btn.textContent;
-      btn.textContent = '✓ Copied!';
+      btn.textContent = 'â Copied!';
       setTimeout(() => btn.textContent = originalText, 2000);
     });
   }
@@ -1026,7 +1026,7 @@
     const content = toggle.nextElementSibling;
     content.classList.toggle('open');
     const arrow = toggle.querySelector('span');
-    if (arrow) arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+    if (arrow) arrow.textContent = content.classList.contains('open') ? 'â²' : 'â¼';
   }
 
   // Initialize
