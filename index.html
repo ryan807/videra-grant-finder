@@ -131,11 +131,7 @@
   .grant-desc { font-size: 0.9rem; margin-bottom: 0.8rem; }
 
   .products-fit { margin: 0.8rem 0; }
-  .products-fit h4 { font-size: 0.85rem; color: var(--primary); margin-bottom: 0.4rem; }
-  .product-tag {
-    display: inline-block; padding: 0.2rem 0.6rem; background: #ebf5fb; color: var(--primary);
-    border-radius: 4px; font-size: 0.78rem; font-weight: 600; margin: 0.15rem;
-  }
+  .products-fit h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 0.5rem; font-weight: 700; }
 
   /* Expandable sections */
   .expand-toggle {
@@ -510,7 +506,7 @@
         </div>
         <div class="stat">
           <div class="num" id="statProducts">0</div>
-          <div class="lbl">Products Recommended</div>
+          <div class="lbl">Solutions Recommended</div>
         </div>
         <div class="stat">
           <div class="num" id="statFunding">$0M</div>
@@ -547,67 +543,79 @@
   const productTemplates = {
     front_door: {
       name: 'Front Door',
-      desc: 'AI-powered phone agent that answers every call 24/7, captures real intake data, qualifies leads, and flows structured records into your EHR.',
-      template: `Front Door AI Agent
-- Automatically answer every inbound call 24/7, eliminating "all staff busy" messages
-- Intelligently qualify leads and collect structured intake information
-- Generate structured clinical documentation that flows directly into the EHR
-- Enable rapid triage and appointment scheduling without manual staff intervention
-- Capture complete patient histories, reducing clinician documentation time`
+      vision: 'Capture Every Inquiry, 24/7',
+      howItHelps: 'Responds instantly via text, voice, chat, qualifies leads and captures scheduling preferences.',
+      features: [
+        'Automatically answer every inbound call 24/7, eliminating "all staff busy" messages',
+        'Intelligently qualify leads and collect structured intake information',
+        'Generate structured clinical documentation that flows directly into the EHR',
+        'Enable rapid triage and appointment scheduling without manual staff intervention',
+        'Capture complete patient histories, reducing clinician documentation time'
+      ]
     },
     intake: {
       name: 'Intake Accelerator',
-      desc: 'Patients converse with AI to complete history, assessments, and medical history in a natural, therapeutic way.',
-      template: `Intake Accelerator
-- AI-powered conversational intake reduces appointment no-shows and streamlines onboarding
-- Captures comprehensive medical history, demographic data, and insurance information
-- Administers validated screening tools (PHQ-9, GAD-7, AUDIT-C) automatically
-- Generates structured clinical documentation ready for clinician review
-- Reduces intake bottleneck, enabling faster patient-clinician engagement`
+      vision: 'Eliminate the Intake Bottleneck',
+      howItHelps: 'Patients converse with our AI to complete history, assessments & medical history. AI does the interviewing and fills out the forms.',
+      features: [
+        'AI-powered conversational intake reduces appointment no-shows and streamlines onboarding',
+        'Captures comprehensive medical history, demographic data, and insurance information',
+        'Administers validated screening tools (PHQ-9, GAD-7, AUDIT-C) automatically',
+        'Generates structured clinical documentation ready for clinician review',
+        'Reduces intake bottleneck, enabling faster patient-clinician engagement'
+      ]
     },
     sidekick: {
       name: 'Sidekick Notes',
-      desc: 'AI listens to therapy sessions and completes clinical notes in seconds. Only solution with auto speaker ID for group therapy.',
-      template: `Sidekick Notes - Clinical Documentation
-- Real-time session documentation eliminates post-visit note burden for clinicians
-- Automatically identifies speakers in group and individual sessions
-- Generates SOAP-formatted notes with chief complaint, assessment, and plan
-- Captures therapeutic interventions, patient statements, and clinical reasoning
-- Reduces clinician documentation time by 60-70%, freeing capacity for patient care
-- Compliance-ready documentation supports EHR integration and billing workflows`
+      vision: 'End the Documentation Burden',
+      howItHelps: 'AI listens to in-person or telehealth therapy sessions (individual or group), and completes clinical notes in seconds.',
+      features: [
+        'Real-time session documentation eliminates post-visit note burden for clinicians',
+        'Automatically identifies speakers in group and individual sessions',
+        'Generates SOAP-formatted notes with chief complaint, assessment, and plan',
+        'Captures therapeutic interventions, patient statements, and clinical reasoning',
+        'Reduces clinician documentation time by 60-70%, freeing capacity for patient care',
+        'Compliance-ready documentation supports EHR integration and billing workflows'
+      ]
     },
     assess: {
       name: 'Assess',
-      desc: 'Multimodal between-visit check-ins measuring patient health status via video, voice, and text analysis.',
-      template: `Assess - Between-Visit Monitoring
-- AI-powered remote patient monitoring tracks behavioral health status between appointments
-- Multimodal analysis: voice, video, and text to capture subtle changes in presentation
-- Automated detection of clinical deterioration, suicidality, or relapse risk
-- Enables early intervention before crisis escalation
-- Generates structured clinical summaries for clinician review
-- Real-time alerts flag high-risk patients for immediate clinician follow-up`
+      vision: 'See Patients Between Visits',
+      howItHelps: 'Multimodal check-ins measure patient health status via video, voice, text analysis — catching deterioration early.',
+      features: [
+        'AI-powered remote patient monitoring tracks behavioral health status between appointments',
+        'Multimodal analysis: voice, video, and text to capture subtle changes in presentation',
+        'Automated detection of clinical deterioration, suicidality, or relapse risk',
+        'Enables early intervention before crisis escalation',
+        'Generates structured clinical summaries for clinician review',
+        'Real-time alerts flag high-risk patients for immediate clinician follow-up'
+      ]
     },
     elevate: {
       name: 'Sidekick Elevate',
-      desc: 'AI analyzes sessions for empathy, therapeutic alliance, evidence-based practices, and red flags with clinician feedback.',
-      template: `Sidekick Elevate - Clinical Supervision & Quality Assurance
-- AI observes live or recorded sessions and provides real-time clinical feedback
-- Measures therapeutic alliance, clinician empathy, and evidence-based practice fidelity
-- Flags missed screening opportunities, protocol deviations, and clinical red flags
-- Generates structured feedback reports to support clinician professional development
-- Enables scaling of clinical supervision across distributed care teams
-- Data-driven coaching improves clinical outcomes and patient satisfaction`
+      vision: 'Improve Clinical Quality',
+      howItHelps: 'AI analyzes sessions for empathy, therapeutic alliance, evidence-based practices and looks for red flags and gives feedback and coaching.',
+      features: [
+        'AI observes live or recorded sessions and provides real-time clinical feedback',
+        'Measures therapeutic alliance, clinician empathy, and evidence-based practice fidelity',
+        'Flags missed screening opportunities, protocol deviations, and clinical red flags',
+        'Generates structured feedback reports to support clinician professional development',
+        'Enables scaling of clinical supervision across distributed care teams',
+        'Data-driven coaching improves clinical outcomes and patient satisfaction'
+      ]
     },
     unify: {
       name: 'Unify',
-      desc: 'AI documentation review helps complete documents faster and identifies issues before claims are submitted.',
-      template: `Unify - Revenue Cycle & Documentation Intelligence
-- AI pre-submission review identifies documentation gaps and compliance issues
-- Automated feedback on clinical specificity, billable elements, and denial risk factors
-- Prioritizes high-risk claims for human review before submission
-- Reduces denials and rework through evidence-based documentation guidance
-- Improves coding accuracy and revenue capture across encounters
-- Integrates with EHR to provide in-workflow alerts and suggestions`
+      vision: 'Reduce Claim Denials',
+      howItHelps: 'AI documentation review solution that helps complete documents faster while finding potential issues before claims are submitted.',
+      features: [
+        'AI pre-submission review identifies documentation gaps and compliance issues',
+        'Automated feedback on clinical specificity, billable elements, and denial risk factors',
+        'Prioritizes high-risk claims for human review before submission',
+        'Reduces denials and rework through evidence-based documentation guidance',
+        'Improves coding accuracy and revenue capture across encounters',
+        'Integrates with EHR to provide in-workflow alerts and suggestions'
+      ]
     }
   };
 
@@ -906,12 +914,15 @@
       `;
 
       if (relevantProds.length > 0) {
-        html += `
-          <div class="products-fit">
-            <h4>Relevant Videra Products:</h4>
-            ${relevantProds.map(p => `<span class="product-tag">${productTemplates[p].name}</span>`).join('')}
-          </div>
-        `;
+        html += `<div class="products-fit"><h4>Videra Solutions for This Grant:</h4>`;
+        relevantProds.forEach(p => {
+          const prod = productTemplates[p];
+          html += `<div style="margin:0.5rem 0;padding:0.6rem 0.8rem;background:#ebf5fb;border-radius:8px;border-left:3px solid var(--primary);">
+            <div style="font-weight:700;color:var(--primary);font-size:0.9rem;">${prod.vision}</div>
+            <div style="font-size:0.82rem;color:var(--text);margin-top:0.2rem;">${prod.howItHelps}</div>
+          </div>`;
+        });
+        html += `</div>`;
       }
 
       // Application builder section
@@ -973,24 +984,29 @@
     const grant = grantsDatabase.find(g => g.id === grantId);
     const relevantProds = answers.products.filter(p => grant.relevantProducts.includes(p));
 
-    let generatedText = `<strong>Project Narrative:</strong>\n\n`;
-    generatedText += `${answers.orgName} serves approximately ${patientCount} patients and clients annually across our behavioral health services. The organization faces a critical challenge: ${primaryGap}\n\n`;
-    generatedText += `To address this gap, we propose implementing the following evidence-based solutions:\n\n`;
+    let generatedHtml = `<p><strong>Project Narrative:</strong></p>`;
+    generatedHtml += `<p>${answers.orgName} serves approximately ${patientCount} patients and clients annually across our behavioral health services. The organization faces a critical challenge: ${primaryGap}</p>`;
+    generatedHtml += `<p>To address this gap, we propose implementing the following evidence-based solutions:</p>`;
 
     relevantProds.forEach(productId => {
       const product = productTemplates[productId];
-      generatedText += `${product.name}\n`;
-      generatedText += `${product.template.split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')}\n\n`;
+      generatedHtml += `<p><strong>${product.vision}</strong></p>`;
+      generatedHtml += `<p>${product.howItHelps}</p>`;
+      generatedHtml += `<ul style="margin:0.3rem 0 1rem 1.2rem;font-size:0.85rem;">`;
+      product.features.forEach(f => {
+        generatedHtml += `<li style="margin-bottom:0.3rem;">${f}</li>`;
+      });
+      generatedHtml += `</ul>`;
     });
 
-    generatedText += `Expected Year 1 Outcomes:\n`;
-    generatedText += `${year1Outcomes}\n\n`;
-    generatedText += `Through this grant, we will advance our organizational capacity to deliver superior outcomes for the individuals we serve.`;
+    generatedHtml += `<p><strong>Expected Year 1 Outcomes:</strong></p>`;
+    generatedHtml += `<p>${year1Outcomes}</p>`;
+    generatedHtml += `<p>Through this grant, we will advance our organizational capacity to deliver superior outcomes for the individuals we serve.</p>`;
 
     const container = document.querySelector(`.generated-${grantIdx}`);
     container.innerHTML = `
       <div class="generated-text">
-        ${generatedText.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '').join('')}
+        ${generatedHtml}
       </div>
       <button class="copy-btn" onclick="copyToClipboard(this)">📋 Copy All</button>
     `;
